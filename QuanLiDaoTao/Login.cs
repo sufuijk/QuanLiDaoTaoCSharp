@@ -23,10 +23,12 @@ namespace QuanLiDaoTao
         {
             sql += " WHERE USERNAME='" + txbUsername.Text + "' AND PASSWD='" + txbPassword.Text+"'";
             int result = Database.Instance.CheckUser(sql);
+            DataTable table = Database.Instance.LoadData(sql);
             if(result == 1)
             {
                 this.Hide();
                 QuanLiDaoTao qldt = new QuanLiDaoTao();
+                qldt.GaintUser = int.Parse(table.Rows[0]["GAINT"].ToString());
                 qldt.Show();
             }
             else

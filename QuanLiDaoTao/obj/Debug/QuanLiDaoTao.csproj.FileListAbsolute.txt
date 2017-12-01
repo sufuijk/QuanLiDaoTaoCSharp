@@ -9,8 +9,9 @@ E:\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.Khoa.resources
 E:\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.QuanLiDaoTao.resources
 E:\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.BoMon.resources
 E:\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.NganhDaoTao.resources
-G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.exe
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.exe.config
+G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.exe
+G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.pdb
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.BoMon.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.ChiTietHTDT.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.DanToc.resources
@@ -22,4 +23,5 @@ G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.Properties.Resourc
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.csproj.GenerateResource.Cache
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.exe
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.pdb
-G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.pdb
+G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.BacDaoTao.resources
+G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.NoiDaoTao.resources

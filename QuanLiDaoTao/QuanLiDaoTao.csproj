@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BacDaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BacDaoTao.Designer.cs">
+      <DependentUpon>BacDaoTao.cs</DependentUpon>
+    </Compile>
     <Compile Include="BoMon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,12 @@
     <Compile Include="NganhDaoTao.Designer.cs">
       <DependentUpon>NganhDaoTao.cs</DependentUpon>
     </Compile>
+    <Compile Include="NoiDaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoiDaoTao.Designer.cs">
+      <DependentUpon>NoiDaoTao.cs</DependentUpon>
+    </Compile>
     <Compile Include="QuanLiDaoTao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BacDaoTao.resx">
+      <DependentUpon>BacDaoTao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BoMon.resx">
       <DependentUpon>BoMon.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NganhDaoTao.resx">
       <DependentUpon>NganhDaoTao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoiDaoTao.resx">
+      <DependentUpon>NoiDaoTao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="QuanLiDaoTao.resx">
       <DependentUpon>QuanLiDaoTao.cs</DependentUpon>
