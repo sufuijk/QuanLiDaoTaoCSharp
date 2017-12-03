@@ -16,5 +16,16 @@ namespace QuanLiDaoTao
         {
             InitializeComponent();
         }
+
+        string sql = "SELECT * FROM HINHTHUC_DAOTAO";
+
+        private void LoadData()
+        {
+            dgvHTDT.DataSource = Database.Instance.LoadData(sql);
+        }
+        private void ChiTietHTDT_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

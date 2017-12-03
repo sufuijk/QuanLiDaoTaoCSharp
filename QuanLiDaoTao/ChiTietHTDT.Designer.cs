@@ -33,16 +33,16 @@
             this.btnDelNDT = new System.Windows.Forms.Button();
             this.btnEditNDT = new System.Windows.Forms.Button();
             this.btnAddNDK = new System.Windows.Forms.Button();
-            this.dgvNDT = new System.Windows.Forms.DataGridView();
+            this.dgvHTDT = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txbMaNDT = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDT)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,15 +95,15 @@
             this.btnAddNDK.Text = "Thêm";
             this.btnAddNDK.UseVisualStyleBackColor = true;
             // 
-            // dgvNDT
+            // dgvHTDT
             // 
-            this.dgvNDT.AllowUserToAddRows = false;
-            this.dgvNDT.AllowUserToDeleteRows = false;
-            this.dgvNDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNDT.Location = new System.Drawing.Point(12, 175);
-            this.dgvNDT.Name = "dgvNDT";
-            this.dgvNDT.Size = new System.Drawing.Size(557, 126);
-            this.dgvNDT.TabIndex = 3;
+            this.dgvHTDT.AllowUserToAddRows = false;
+            this.dgvHTDT.AllowUserToDeleteRows = false;
+            this.dgvHTDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHTDT.Location = new System.Drawing.Point(12, 175);
+            this.dgvHTDT.Name = "dgvHTDT";
+            this.dgvHTDT.Size = new System.Drawing.Size(557, 126);
+            this.dgvHTDT.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -119,6 +119,31 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ngành đào tạo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Mã hình thức đào tạo";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(159, 96);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 5;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(159, 69);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
             // 
             // label2
             // 
@@ -145,43 +170,19 @@
             this.txbMaNDT.Size = new System.Drawing.Size(177, 20);
             this.txbMaNDT.TabIndex = 0;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(159, 69);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 96);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Mã hình thức đào tạo";
-            // 
             // ChiTietHTDT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 315);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dgvNDT);
+            this.Controls.Add(this.dgvHTDT);
             this.Controls.Add(this.groupBox1);
             this.Name = "ChiTietHTDT";
             this.Text = "Quản lí chi tiết hình thức đào tạo";
+            this.Load += new System.EventHandler(this.ChiTietHTDT_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHTDT)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -195,7 +196,7 @@
         private System.Windows.Forms.Button btnDelNDT;
         private System.Windows.Forms.Button btnEditNDT;
         private System.Windows.Forms.Button btnAddNDK;
-        private System.Windows.Forms.DataGridView dgvNDT;
+        private System.Windows.Forms.DataGridView dgvHTDT;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;

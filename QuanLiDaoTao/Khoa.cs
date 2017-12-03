@@ -52,5 +52,27 @@ namespace QuanLiDaoTao
             }
             
         }
+
+        private void btnEditKhoa_Click(object sender, EventArgs e)
+        {
+            DataTable table = Database.Instance.LoadData(sql);
+            table.Rows[index]["MaKhoa"] = txbMaKhoa.Text;
+            table.Rows[index]["TenKhoa"] = txbTenKhoa.Text;
+            Database.Instance.Update(table);
+            LoadData();
+        }
+
+        private void btnDelKhoa_Click(object sender, EventArgs e)
+        {
+            DataTable table = Database.Instance.LoadData(sql);
+            table.Rows[index].Delete();
+            Database.Instance.Update(table);
+            LoadData();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

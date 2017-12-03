@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbTenNDT = new System.Windows.Forms.TextBox();
+            this.txbMaNDT = new System.Windows.Forms.TextBox();
             this.dgvNDT = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txbTenNDT = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAddNDK = new System.Windows.Forms.Button();
-            this.btnEditNDT = new System.Windows.Forms.Button();
-            this.btnDelNDT = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.txbMaNDT = new System.Windows.Forms.TextBox();
+            this.btnDelNDT = new System.Windows.Forms.Button();
+            this.btnEditNDT = new System.Windows.Forms.Button();
+            this.btnAddNDT = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNDT)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -57,35 +57,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin ngành đào tạo";
             // 
-            // dgvNDT
+            // label2
             // 
-            this.dgvNDT.AllowUserToAddRows = false;
-            this.dgvNDT.AllowUserToDeleteRows = false;
-            this.dgvNDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNDT.Location = new System.Drawing.Point(12, 146);
-            this.dgvNDT.Name = "dgvNDT";
-            this.dgvNDT.Size = new System.Drawing.Size(557, 126);
-            this.dgvNDT.TabIndex = 1;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btnRefresh);
-            this.groupBox2.Controls.Add(this.btnDelNDT);
-            this.groupBox2.Controls.Add(this.btnEditNDT);
-            this.groupBox2.Controls.Add(this.btnAddNDK);
-            this.groupBox2.Location = new System.Drawing.Point(386, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(183, 128);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hành động";
-            // 
-            // txbTenNDT
-            // 
-            this.txbTenNDT.Location = new System.Drawing.Point(159, 72);
-            this.txbTenNDT.Name = "txbTenNDT";
-            this.txbTenNDT.Size = new System.Drawing.Size(177, 20);
-            this.txbTenNDT.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Tên ngành đào tạo";
             // 
             // label1
             // 
@@ -96,41 +75,43 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Mã ngành";
             // 
-            // label2
+            // txbTenNDT
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tên ngành đào tạo";
+            this.txbTenNDT.Location = new System.Drawing.Point(159, 72);
+            this.txbTenNDT.Name = "txbTenNDT";
+            this.txbTenNDT.Size = new System.Drawing.Size(177, 20);
+            this.txbTenNDT.TabIndex = 1;
             // 
-            // btnAddNDK
+            // txbMaNDT
             // 
-            this.btnAddNDK.Location = new System.Drawing.Point(6, 19);
-            this.btnAddNDK.Name = "btnAddNDK";
-            this.btnAddNDK.Size = new System.Drawing.Size(75, 66);
-            this.btnAddNDK.TabIndex = 0;
-            this.btnAddNDK.Text = "Thêm";
-            this.btnAddNDK.UseVisualStyleBackColor = true;
+            this.txbMaNDT.Location = new System.Drawing.Point(159, 41);
+            this.txbMaNDT.Name = "txbMaNDT";
+            this.txbMaNDT.Size = new System.Drawing.Size(177, 20);
+            this.txbMaNDT.TabIndex = 0;
             // 
-            // btnEditNDT
+            // dgvNDT
             // 
-            this.btnEditNDT.Location = new System.Drawing.Point(97, 19);
-            this.btnEditNDT.Name = "btnEditNDT";
-            this.btnEditNDT.Size = new System.Drawing.Size(75, 32);
-            this.btnEditNDT.TabIndex = 1;
-            this.btnEditNDT.Text = "Sửa";
-            this.btnEditNDT.UseVisualStyleBackColor = true;
+            this.dgvNDT.AllowUserToAddRows = false;
+            this.dgvNDT.AllowUserToDeleteRows = false;
+            this.dgvNDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNDT.Location = new System.Drawing.Point(12, 146);
+            this.dgvNDT.Name = "dgvNDT";
+            this.dgvNDT.Size = new System.Drawing.Size(557, 126);
+            this.dgvNDT.TabIndex = 1;
+            this.dgvNDT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNDT_CellContentClick);
             // 
-            // btnDelNDT
+            // groupBox2
             // 
-            this.btnDelNDT.Location = new System.Drawing.Point(97, 57);
-            this.btnDelNDT.Name = "btnDelNDT";
-            this.btnDelNDT.Size = new System.Drawing.Size(75, 28);
-            this.btnDelNDT.TabIndex = 2;
-            this.btnDelNDT.Text = "Xóa";
-            this.btnDelNDT.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.btnRefresh);
+            this.groupBox2.Controls.Add(this.btnDelNDT);
+            this.groupBox2.Controls.Add(this.btnEditNDT);
+            this.groupBox2.Controls.Add(this.btnAddNDT);
+            this.groupBox2.Location = new System.Drawing.Point(386, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(183, 128);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hành động";
             // 
             // btnRefresh
             // 
@@ -140,13 +121,37 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // txbMaNDT
+            // btnDelNDT
             // 
-            this.txbMaNDT.Location = new System.Drawing.Point(159, 41);
-            this.txbMaNDT.Name = "txbMaNDT";
-            this.txbMaNDT.Size = new System.Drawing.Size(177, 20);
-            this.txbMaNDT.TabIndex = 0;
+            this.btnDelNDT.Location = new System.Drawing.Point(97, 57);
+            this.btnDelNDT.Name = "btnDelNDT";
+            this.btnDelNDT.Size = new System.Drawing.Size(75, 28);
+            this.btnDelNDT.TabIndex = 2;
+            this.btnDelNDT.Text = "Xóa";
+            this.btnDelNDT.UseVisualStyleBackColor = true;
+            this.btnDelNDT.Click += new System.EventHandler(this.btnDelNDT_Click);
+            // 
+            // btnEditNDT
+            // 
+            this.btnEditNDT.Location = new System.Drawing.Point(97, 19);
+            this.btnEditNDT.Name = "btnEditNDT";
+            this.btnEditNDT.Size = new System.Drawing.Size(75, 32);
+            this.btnEditNDT.TabIndex = 1;
+            this.btnEditNDT.Text = "Sửa";
+            this.btnEditNDT.UseVisualStyleBackColor = true;
+            this.btnEditNDT.Click += new System.EventHandler(this.btnEditNDT_Click);
+            // 
+            // btnAddNDT
+            // 
+            this.btnAddNDT.Location = new System.Drawing.Point(6, 19);
+            this.btnAddNDT.Name = "btnAddNDT";
+            this.btnAddNDT.Size = new System.Drawing.Size(75, 66);
+            this.btnAddNDT.TabIndex = 0;
+            this.btnAddNDT.Text = "Thêm";
+            this.btnAddNDT.UseVisualStyleBackColor = true;
+            this.btnAddNDT.Click += new System.EventHandler(this.btnAddNDT_Click);
             // 
             // NganhDaoTao
             // 
@@ -158,6 +163,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "NganhDaoTao";
             this.Text = "NganhDaoTao";
+            this.Load += new System.EventHandler(this.NganhDaoTao_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNDT)).EndInit();
@@ -177,7 +183,7 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnDelNDT;
         private System.Windows.Forms.Button btnEditNDT;
-        private System.Windows.Forms.Button btnAddNDK;
+        private System.Windows.Forms.Button btnAddNDT;
         private System.Windows.Forms.TextBox txbMaNDT;
     }
 }

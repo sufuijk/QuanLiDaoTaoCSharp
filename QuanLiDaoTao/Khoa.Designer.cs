@@ -119,6 +119,7 @@
             this.btnEditKhoa.TabIndex = 3;
             this.btnEditKhoa.Text = "Sửa";
             this.btnEditKhoa.UseVisualStyleBackColor = true;
+            this.btnEditKhoa.Click += new System.EventHandler(this.btnEditKhoa_Click);
             // 
             // btnDelKhoa
             // 
@@ -128,6 +129,7 @@
             this.btnDelKhoa.TabIndex = 4;
             this.btnDelKhoa.Text = "Xóa";
             this.btnDelKhoa.UseVisualStyleBackColor = true;
+            this.btnDelKhoa.Click += new System.EventHandler(this.btnDelKhoa_Click);
             // 
             // btnRefresh
             // 
@@ -137,6 +139,7 @@
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // groupBox2
             // 

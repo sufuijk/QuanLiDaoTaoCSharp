@@ -30,26 +30,26 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnDelNDT = new System.Windows.Forms.Button();
-            this.btnEditNDT = new System.Windows.Forms.Button();
-            this.btnAddNDK = new System.Windows.Forms.Button();
-            this.dgvNDT = new System.Windows.Forms.DataGridView();
+            this.btnDelDT = new System.Windows.Forms.Button();
+            this.btnEditDT = new System.Windows.Forms.Button();
+            this.btnAddDT = new System.Windows.Forms.Button();
+            this.dgvDT = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbTenNDT = new System.Windows.Forms.TextBox();
-            this.txbMaNDT = new System.Windows.Forms.TextBox();
+            this.txbTenDT = new System.Windows.Forms.TextBox();
+            this.txbMaDT = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnRefresh);
-            this.groupBox2.Controls.Add(this.btnDelNDT);
-            this.groupBox2.Controls.Add(this.btnEditNDT);
-            this.groupBox2.Controls.Add(this.btnAddNDK);
+            this.groupBox2.Controls.Add(this.btnDelDT);
+            this.groupBox2.Controls.Add(this.btnEditDT);
+            this.groupBox2.Controls.Add(this.btnAddDT);
             this.groupBox2.Location = new System.Drawing.Point(386, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(183, 128);
@@ -65,50 +65,56 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnDelNDT
+            // btnDelDT
             // 
-            this.btnDelNDT.Location = new System.Drawing.Point(97, 57);
-            this.btnDelNDT.Name = "btnDelNDT";
-            this.btnDelNDT.Size = new System.Drawing.Size(75, 28);
-            this.btnDelNDT.TabIndex = 2;
-            this.btnDelNDT.Text = "Xóa";
-            this.btnDelNDT.UseVisualStyleBackColor = true;
+            this.btnDelDT.Location = new System.Drawing.Point(97, 57);
+            this.btnDelDT.Name = "btnDelDT";
+            this.btnDelDT.Size = new System.Drawing.Size(75, 28);
+            this.btnDelDT.TabIndex = 2;
+            this.btnDelDT.Text = "Xóa";
+            this.btnDelDT.UseVisualStyleBackColor = true;
+            this.btnDelDT.Click += new System.EventHandler(this.btnDelDT_Click);
             // 
-            // btnEditNDT
+            // btnEditDT
             // 
-            this.btnEditNDT.Location = new System.Drawing.Point(97, 19);
-            this.btnEditNDT.Name = "btnEditNDT";
-            this.btnEditNDT.Size = new System.Drawing.Size(75, 32);
-            this.btnEditNDT.TabIndex = 1;
-            this.btnEditNDT.Text = "Sửa";
-            this.btnEditNDT.UseVisualStyleBackColor = true;
+            this.btnEditDT.Location = new System.Drawing.Point(97, 19);
+            this.btnEditDT.Name = "btnEditDT";
+            this.btnEditDT.Size = new System.Drawing.Size(75, 32);
+            this.btnEditDT.TabIndex = 1;
+            this.btnEditDT.Text = "Sửa";
+            this.btnEditDT.UseVisualStyleBackColor = true;
+            this.btnEditDT.Click += new System.EventHandler(this.btnEditDT_Click);
             // 
-            // btnAddNDK
+            // btnAddDT
             // 
-            this.btnAddNDK.Location = new System.Drawing.Point(6, 19);
-            this.btnAddNDK.Name = "btnAddNDK";
-            this.btnAddNDK.Size = new System.Drawing.Size(75, 66);
-            this.btnAddNDK.TabIndex = 0;
-            this.btnAddNDK.Text = "Thêm";
-            this.btnAddNDK.UseVisualStyleBackColor = true;
+            this.btnAddDT.Location = new System.Drawing.Point(6, 19);
+            this.btnAddDT.Name = "btnAddDT";
+            this.btnAddDT.Size = new System.Drawing.Size(75, 66);
+            this.btnAddDT.TabIndex = 0;
+            this.btnAddDT.Text = "Thêm";
+            this.btnAddDT.UseVisualStyleBackColor = true;
+            this.btnAddDT.Click += new System.EventHandler(this.btnAddDT_Click);
             // 
-            // dgvNDT
+            // dgvDT
             // 
-            this.dgvNDT.AllowUserToAddRows = false;
-            this.dgvNDT.AllowUserToDeleteRows = false;
-            this.dgvNDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNDT.Location = new System.Drawing.Point(12, 146);
-            this.dgvNDT.Name = "dgvNDT";
-            this.dgvNDT.Size = new System.Drawing.Size(557, 126);
-            this.dgvNDT.TabIndex = 3;
+            this.dgvDT.AllowUserToAddRows = false;
+            this.dgvDT.AllowUserToDeleteRows = false;
+            this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDT.Location = new System.Drawing.Point(12, 146);
+            this.dgvDT.Name = "dgvDT";
+            this.dgvDT.ReadOnly = true;
+            this.dgvDT.Size = new System.Drawing.Size(557, 126);
+            this.dgvDT.TabIndex = 3;
+            this.dgvDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDT_CellClick);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txbTenNDT);
-            this.groupBox1.Controls.Add(this.txbMaNDT);
+            this.groupBox1.Controls.Add(this.txbTenDT);
+            this.groupBox1.Controls.Add(this.txbMaDT);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(368, 128);
@@ -134,19 +140,19 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Mã ngành";
             // 
-            // txbTenNDT
+            // txbTenDT
             // 
-            this.txbTenNDT.Location = new System.Drawing.Point(159, 72);
-            this.txbTenNDT.Name = "txbTenNDT";
-            this.txbTenNDT.Size = new System.Drawing.Size(177, 20);
-            this.txbTenNDT.TabIndex = 1;
+            this.txbTenDT.Location = new System.Drawing.Point(159, 72);
+            this.txbTenDT.Name = "txbTenDT";
+            this.txbTenDT.Size = new System.Drawing.Size(177, 20);
+            this.txbTenDT.TabIndex = 1;
             // 
-            // txbMaNDT
+            // txbMaDT
             // 
-            this.txbMaNDT.Location = new System.Drawing.Point(159, 41);
-            this.txbMaNDT.Name = "txbMaNDT";
-            this.txbMaNDT.Size = new System.Drawing.Size(177, 20);
-            this.txbMaNDT.TabIndex = 0;
+            this.txbMaDT.Location = new System.Drawing.Point(159, 41);
+            this.txbMaDT.Name = "txbMaDT";
+            this.txbMaDT.Size = new System.Drawing.Size(177, 20);
+            this.txbMaDT.TabIndex = 0;
             // 
             // DanToc
             // 
@@ -154,12 +160,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 281);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.dgvNDT);
+            this.Controls.Add(this.dgvDT);
             this.Controls.Add(this.groupBox1);
             this.Name = "DanToc";
             this.Text = "DanToc";
+            this.Load += new System.EventHandler(this.DanToc_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -170,14 +177,14 @@
 
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Button btnDelNDT;
-        private System.Windows.Forms.Button btnEditNDT;
-        private System.Windows.Forms.Button btnAddNDK;
-        private System.Windows.Forms.DataGridView dgvNDT;
+        private System.Windows.Forms.Button btnDelDT;
+        private System.Windows.Forms.Button btnEditDT;
+        private System.Windows.Forms.Button btnAddDT;
+        private System.Windows.Forms.DataGridView dgvDT;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbTenNDT;
-        private System.Windows.Forms.TextBox txbMaNDT;
+        private System.Windows.Forms.TextBox txbTenDT;
+        private System.Windows.Forms.TextBox txbMaDT;
     }
 }

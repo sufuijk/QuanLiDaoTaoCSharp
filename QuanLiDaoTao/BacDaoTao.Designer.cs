@@ -34,8 +34,8 @@
             this.btnEditBDT = new System.Windows.Forms.Button();
             this.btnDelBDT = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txbTenKhoa = new System.Windows.Forms.TextBox();
-            this.txbMaKhoa = new System.Windows.Forms.TextBox();
+            this.txbTenBDT = new System.Windows.Forms.TextBox();
+            this.txbMaBDT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLoadBDT = new System.Windows.Forms.DataGridView();
@@ -65,6 +65,7 @@
             this.btnAddBDT.TabIndex = 2;
             this.btnAddBDT.Text = "Thêm";
             this.btnAddBDT.UseVisualStyleBackColor = true;
+            this.btnAddBDT.Click += new System.EventHandler(this.btnAddBDT_Click);
             // 
             // btnRefresh
             // 
@@ -74,6 +75,7 @@
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnEditBDT
             // 
@@ -83,6 +85,7 @@
             this.btnEditBDT.TabIndex = 3;
             this.btnEditBDT.Text = "Sửa";
             this.btnEditBDT.UseVisualStyleBackColor = true;
+            this.btnEditBDT.Click += new System.EventHandler(this.btnEditBDT_Click);
             // 
             // btnDelBDT
             // 
@@ -92,11 +95,12 @@
             this.btnDelBDT.TabIndex = 4;
             this.btnDelBDT.Text = "Xóa";
             this.btnDelBDT.UseVisualStyleBackColor = true;
+            this.btnDelBDT.Click += new System.EventHandler(this.btnDelBDT_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txbTenKhoa);
-            this.groupBox1.Controls.Add(this.txbMaKhoa);
+            this.groupBox1.Controls.Add(this.txbTenBDT);
+            this.groupBox1.Controls.Add(this.txbMaBDT);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -106,19 +110,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin bậc đào tạo";
             // 
-            // txbTenKhoa
+            // txbTenBDT
             // 
-            this.txbTenKhoa.Location = new System.Drawing.Point(105, 67);
-            this.txbTenKhoa.Name = "txbTenKhoa";
-            this.txbTenKhoa.Size = new System.Drawing.Size(214, 20);
-            this.txbTenKhoa.TabIndex = 3;
+            this.txbTenBDT.Location = new System.Drawing.Point(105, 67);
+            this.txbTenBDT.Name = "txbTenBDT";
+            this.txbTenBDT.Size = new System.Drawing.Size(214, 20);
+            this.txbTenBDT.TabIndex = 3;
             // 
-            // txbMaKhoa
+            // txbMaBDT
             // 
-            this.txbMaKhoa.Location = new System.Drawing.Point(105, 32);
-            this.txbMaKhoa.Name = "txbMaKhoa";
-            this.txbMaKhoa.Size = new System.Drawing.Size(214, 20);
-            this.txbMaKhoa.TabIndex = 2;
+            this.txbMaBDT.Location = new System.Drawing.Point(105, 32);
+            this.txbMaBDT.Name = "txbMaBDT";
+            this.txbMaBDT.Size = new System.Drawing.Size(214, 20);
+            this.txbMaBDT.TabIndex = 2;
             // 
             // label2
             // 
@@ -148,6 +152,7 @@
             this.dgvLoadBDT.ReadOnly = true;
             this.dgvLoadBDT.Size = new System.Drawing.Size(569, 161);
             this.dgvLoadBDT.TabIndex = 7;
+            this.dgvLoadBDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoadBDT_CellClick);
             // 
             // BacDaoTao
             // 
@@ -159,6 +164,7 @@
             this.Controls.Add(this.dgvLoadBDT);
             this.Name = "BacDaoTao";
             this.Text = "BacDaoTao";
+            this.Load += new System.EventHandler(this.BacDaoTao_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -170,15 +176,15 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAddBDT;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnEditBDT;
         private System.Windows.Forms.Button btnDelBDT;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txbTenKhoa;
-        private System.Windows.Forms.TextBox txbMaKhoa;
+        private System.Windows.Forms.TextBox txbTenBDT;
+        private System.Windows.Forms.TextBox txbMaBDT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvLoadBDT;
+        private System.Windows.Forms.Button btnAddBDT;
     }
 }

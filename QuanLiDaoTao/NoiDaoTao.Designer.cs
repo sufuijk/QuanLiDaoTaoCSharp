@@ -34,8 +34,8 @@
             this.btnEditNoiDT = new System.Windows.Forms.Button();
             this.btnDelNoiDT = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txbTenKhoa = new System.Windows.Forms.TextBox();
-            this.txbMaKhoa = new System.Windows.Forms.TextBox();
+            this.txbTenNoiDT = new System.Windows.Forms.TextBox();
+            this.txbMaNoiDT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLoadNoiDT = new System.Windows.Forms.DataGridView();
@@ -65,6 +65,7 @@
             this.btnAddNoiDT.TabIndex = 2;
             this.btnAddNoiDT.Text = "Thêm";
             this.btnAddNoiDT.UseVisualStyleBackColor = true;
+            this.btnAddNoiDT.Click += new System.EventHandler(this.btnAddNoiDT_Click);
             // 
             // btnRefresh
             // 
@@ -74,6 +75,7 @@
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnEditNoiDT
             // 
@@ -83,6 +85,7 @@
             this.btnEditNoiDT.TabIndex = 3;
             this.btnEditNoiDT.Text = "Sửa";
             this.btnEditNoiDT.UseVisualStyleBackColor = true;
+            this.btnEditNoiDT.Click += new System.EventHandler(this.btnEditNoiDT_Click);
             // 
             // btnDelNoiDT
             // 
@@ -92,11 +95,12 @@
             this.btnDelNoiDT.TabIndex = 4;
             this.btnDelNoiDT.Text = "Xóa";
             this.btnDelNoiDT.UseVisualStyleBackColor = true;
+            this.btnDelNoiDT.Click += new System.EventHandler(this.btnDelNoiDT_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txbTenKhoa);
-            this.groupBox1.Controls.Add(this.txbMaKhoa);
+            this.groupBox1.Controls.Add(this.txbTenNoiDT);
+            this.groupBox1.Controls.Add(this.txbMaNoiDT);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -106,19 +110,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin nơi đào tạo";
             // 
-            // txbTenKhoa
+            // txbTenNoiDT
             // 
-            this.txbTenKhoa.Location = new System.Drawing.Point(108, 67);
-            this.txbTenKhoa.Name = "txbTenKhoa";
-            this.txbTenKhoa.Size = new System.Drawing.Size(211, 20);
-            this.txbTenKhoa.TabIndex = 3;
+            this.txbTenNoiDT.Location = new System.Drawing.Point(108, 67);
+            this.txbTenNoiDT.Name = "txbTenNoiDT";
+            this.txbTenNoiDT.Size = new System.Drawing.Size(211, 20);
+            this.txbTenNoiDT.TabIndex = 3;
             // 
-            // txbMaKhoa
+            // txbMaNoiDT
             // 
-            this.txbMaKhoa.Location = new System.Drawing.Point(108, 32);
-            this.txbMaKhoa.Name = "txbMaKhoa";
-            this.txbMaKhoa.Size = new System.Drawing.Size(211, 20);
-            this.txbMaKhoa.TabIndex = 2;
+            this.txbMaNoiDT.Location = new System.Drawing.Point(108, 32);
+            this.txbMaNoiDT.Name = "txbMaNoiDT";
+            this.txbMaNoiDT.Size = new System.Drawing.Size(211, 20);
+            this.txbMaNoiDT.TabIndex = 2;
             // 
             // label2
             // 
@@ -148,6 +152,7 @@
             this.dgvLoadNoiDT.ReadOnly = true;
             this.dgvLoadNoiDT.Size = new System.Drawing.Size(569, 161);
             this.dgvLoadNoiDT.TabIndex = 7;
+            this.dgvLoadNoiDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoadNoiDT_CellClick);
             // 
             // NoiDaoTao
             // 
@@ -159,6 +164,7 @@
             this.Controls.Add(this.dgvLoadNoiDT);
             this.Name = "NoiDaoTao";
             this.Text = "Quản lí nơi đào tạo";
+            this.Load += new System.EventHandler(this.NoiDaoTao_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -175,8 +181,8 @@
         private System.Windows.Forms.Button btnEditNoiDT;
         private System.Windows.Forms.Button btnDelNoiDT;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txbTenKhoa;
-        private System.Windows.Forms.TextBox txbMaKhoa;
+        private System.Windows.Forms.TextBox txbTenNoiDT;
+        private System.Windows.Forms.TextBox txbMaNoiDT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvLoadNoiDT;
