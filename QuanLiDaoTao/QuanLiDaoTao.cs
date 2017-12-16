@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Microsoft.Office.Interop.Excel;
+using AppExcel = Microsoft.Office.Interop.Excel.Application;
+
+using DataTable = System.Data.DataTable;
 namespace QuanLiDaoTao
 {
     public partial class QuanLiDaoTao : Form
@@ -16,16 +20,19 @@ namespace QuanLiDaoTao
         {
             InitializeComponent();
         }
-        private string sql = "SELECT * FROM GiangVien";
-        public int GaintUser;
-        int index;
+        
+        public int GrantUser;
+        int index; // index for Giangvien
+        int index2; // index for HTDT
 
+        private string sql = "SELECT * FROM GiangVien";
         private string sql1 = "SELECT * FROM Dantoc";
         private string sql2 = "SELECT * FROM Bomon";
         private string sql3 = "SELECT * FROM Nganh_Daotao";
         private string sql4 = "SELECT * FROM Bacdaotao";
         private string sql5 = "SELECT * FROM Noidaotao";
-
+        private string sql6 = "SELECT * FROM Hinhthuc_daotao";
+        private string sql7 = "SELECT * FROM CHITIET_HTDT";
         public void setCombobox()
         {
             cbxDantoc.DataSource = Database.Instance.LoadData(sql1);
@@ -36,9 +43,13 @@ namespace QuanLiDaoTao
             cbxBM.ValueMember = "MaBM";
             cbxBM.DisplayMember = "TenBM";
 
-            cbxNganhDT.DataSource = Database.Instance.LoadData(sql3);
-            cbxNganhDT.ValueMember = "MaNganhDT";
-            cbxNganhDT.DisplayMember = "TenNganhDT";
+            cbxCTHTDT.DataSource = Database.Instance.LoadData(sql7);
+            cbxCTHTDT.ValueMember = "STTHTDT";
+            cbxCTHTDT.DisplayMember = "Chitiet";
+
+            cbxMaNganhDT.DataSource = Database.Instance.LoadData(sql3);
+            cbxMaNganhDT.ValueMember = "MaNganhDT";
+            cbxMaNganhDT.DisplayMember = "TenNganhDT";
 
             cbxBDT.DataSource = Database.Instance.LoadData(sql4);
             cbxBDT.ValueMember = "MaBacDT";
@@ -47,21 +58,38 @@ namespace QuanLiDaoTao
             cbxNoiDT.DataSource = Database.Instance.LoadData(sql5);
             cbxNoiDT.ValueMember = "MaNoiDT";
             cbxNoiDT.DisplayMember = "TenNoiDT";
+
+            cbxMaHTDT.DataSource = Database.Instance.LoadData(sql6);
+            cbxMaHTDT.ValueMember = "MaHTDT";
+            cbxMaHTDT.DisplayMember = "TenHTDT";
+
+            //Set default index for combobox Gioitinh
+            cbxGioiTinh.SelectedIndex = 0;
         }
         private void LoadData()
         {
-            dgvLoadGiangvien.DataSource = Database.Instance.LoadData(sql);
+            dgvLoadGiangvien.DataSource = Database.Instance.LoadData(this.sql);
+            txbDetailUsername.Text = Account.User.getUsername();
+            txbDetailGrantUser.Text = Account.User.getGrant();
+            txbDetailNoteUser.Text = Account.User.getDetail();
+        }
+
+        private void LoadData2()
+        {
+            dgvLoadHTDT.DataSource = Database.Instance.LoadData(this.sql7);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadData();
+            LoadData2();
             //Phân quyền ở đây 
             //1 là administrator
             //khác là user 
-            if (GaintUser != 1)
+            if (int.Parse(Account.User.getGrant()) != 1)
             {
                 tabControl1.TabPages.Remove(tabPage2);
                 tabControl1.TabPages.Remove(tabPage5);
+                tabControl1.TabPages.Remove(tabPage3);
             }
 
             setCombobox();
@@ -76,16 +104,11 @@ namespace QuanLiDaoTao
             setCombobox();
         }
 
-        private void btnDetailNDT_Click(object sender, EventArgs e)
-        {
-            NganhDaoTao nghanhdaotao = new NganhDaoTao();
-            nghanhdaotao.ShowDialog();
-            setCombobox();
-        }
+        
 
         private void QuanLiDaoTao_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void btnDetailDT_Click(object sender, EventArgs e)
@@ -125,24 +148,35 @@ namespace QuanLiDaoTao
 
         private void btnAddGV_Click(object sender, EventArgs e)
         {
-            DataTable table = Database.Instance.LoadData(sql);
-            DataRow newRow = table.NewRow();
-            newRow["MaGV"] = txbMaGV.Text;
-            newRow["Ho"] = txbHoGV.Text;
-            newRow["TenLot"] = txbTenLotGV.Text;
-            newRow["Ten"] = txbTenGV.Text;
-            newRow["NgaySinh"] = dtpNgaySinhGV.Value;
-            newRow["KinhPhi"] = txbKinhphi.Text;
-            newRow["TG_DuKien"] = dtpThoigiandukien.Value;
-            newRow["HuongBoTri"] = txbHuongbotri.Text;
-            newRow["MaDanToc"] = cbxDantoc.SelectedValue;
-            newRow["MaBM"] = cbxBM.SelectedValue;
-            newRow["MaNganhDT"] = cbxNganhDT.SelectedValue;
-            newRow["MaNoiDT"] = cbxNoiDT.SelectedValue;
-            newRow["MaBacDT"] = cbxBDT.SelectedValue;
-            table.Rows.Add(newRow);
-            Database.Instance.Update(table);
-            LoadData();
+            if (txbMaGV.Text == null || txbMaGV.Text == "")
+            {
+                MessageBox.Show("Mã giảng viên không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DataTable table = Database.Instance.LoadData(sql);
+
+                DataRow newRow = table.NewRow();
+                newRow["MaGV"] = txbMaGV.Text;
+                newRow["Ho"] = txbHoGV.Text;
+                newRow["TenLot"] = txbTenLotGV.Text;
+                newRow["Ten"] = txbTenGV.Text;
+                newRow["GioiTinh"] = cbxGioiTinh.SelectedItem;
+                newRow["NgaySinh"] = dtpNgaySinhGV.Value;
+                newRow["KinhPhi"] = txbKinhphi.Text;
+                newRow["TG_BatDau"] = dtpThoigianBD.Value;
+                newRow["TG_KetThuc"] = dtpThoigianKT.Value;
+                newRow["HuongBoTri"] = txbHuongbotri.Text;
+                newRow["MaDanToc"] = cbxDantoc.SelectedValue;
+                newRow["MaBM"] = cbxBM.SelectedValue;
+                newRow["STTHTDT"] = cbxCTHTDT.SelectedValue;
+                newRow["MaNoiDT"] = cbxNoiDT.SelectedValue;
+                newRow["MaBacDT"] = cbxBDT.SelectedValue;
+                table.Rows.Add(newRow);
+                Database.Instance.Update(table);
+                LoadData();
+                MessageBox.Show("Nhập giảng viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void dgvLoadGiangvien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -151,17 +185,19 @@ namespace QuanLiDaoTao
             index = e.RowIndex;
             if (index >= 0)
             {
-                txbMaGV.Text = table.Rows[index]["MaGV"].ToString();
+                
                 txbHoGV.Text = table.Rows[index]["Ho"].ToString();
                 txbTenLotGV.Text = table.Rows[index]["TenLot"].ToString();
                 txbTenGV.Text = table.Rows[index]["Ten"].ToString();
+                cbxGioiTinh.SelectedItem = table.Rows[index]["GioiTinh"].ToString();
                 dtpNgaySinhGV.Value = DateTime.Parse(table.Rows[index]["NgaySinh"].ToString());
-                dtpThoigiandukien.Value = DateTime.Parse(table.Rows[index]["TG_DuKien"].ToString());
+                dtpThoigianBD.Value = DateTime.Parse(table.Rows[index]["TG_BatDau"].ToString());
+                dtpThoigianKT.Value = DateTime.Parse(table.Rows[index]["TG_KetThuc"].ToString());
                 txbHuongbotri.Text = table.Rows[index]["HuongBoTri"].ToString();
                 txbKinhphi.Text = table.Rows[index]["KinhPhi"].ToString();
                 cbxDantoc.SelectedValue = table.Rows[index]["MaDanToc"].ToString();
                 cbxBM.SelectedValue = table.Rows[index]["MaBM"].ToString();
-                cbxNganhDT.SelectedValue = table.Rows[index]["MaNganhDT"].ToString();
+                cbxCTHTDT.SelectedValue = table.Rows[index]["STTHTDT"].ToString();
                 cbxNoiDT.SelectedValue = table.Rows[index]["MaNoiDT"].ToString();
                 cbxBDT.SelectedValue = table.Rows[index]["MaBacDT"].ToString();
             }
@@ -170,22 +206,26 @@ namespace QuanLiDaoTao
 
         private void btnEditGV_Click(object sender, EventArgs e)
         {
-            DataTable table = Database.Instance.LoadData(sql);
-            table.Rows[index]["MaGV"] = txbMaGV.Text;
+            
+            DataTable table = Database.Instance.LoadData(this.sql);
+            table.Rows[index]["MaGV"] = (txbMaGV.Text == null || txbMaGV.Text == "") ? table.Rows[index]["MaGV"].ToString() : txbMaGV.Text;
             table.Rows[index]["Ho"] = txbHoGV.Text;
             table.Rows[index]["TenLot"] = txbTenLotGV.Text;
             table.Rows[index]["Ten"] = txbTenGV.Text;
+            table.Rows[index]["GioiTinh"] = cbxGioiTinh.SelectedItem;
             table.Rows[index]["NgaySinh"] = dtpNgaySinhGV.Value;
-            table.Rows[index]["TG_DuKien"] = dtpThoigiandukien.Value;
+            table.Rows[index]["TG_BatDau"] = dtpThoigianBD.Value;
+            table.Rows[index]["TG_KetThuc"] = dtpThoigianKT.Value;
             table.Rows[index]["HuongBoTri"] = txbHuongbotri.Text;
             table.Rows[index]["KinhPhi"] = txbKinhphi.Text;
             table.Rows[index]["MaDanToc"] = cbxDantoc.SelectedValue;
             table.Rows[index]["MaBM"] = cbxBM.SelectedValue;
-            table.Rows[index]["MaNganhDT"] = cbxNganhDT.SelectedValue;
+            table.Rows[index]["STTHTDT"] = cbxCTHTDT.SelectedValue;
             table.Rows[index]["MaNoiDT"] = cbxNoiDT.SelectedValue;
             table.Rows[index]["MaBacDT"] = cbxBDT.SelectedValue;
             Database.Instance.Update(table);
             LoadData();
+            MessageBox.Show("Chỉnh sửa giảng viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnDelGV_Click(object sender, EventArgs e)
@@ -212,6 +252,168 @@ namespace QuanLiDaoTao
         {
             sql = "SELECT * FROM GIANGVIEN WHERE Ten=N'" + txbSearchName.Text + "'";
             dgvTimKiem.DataSource = Database.Instance.LoadData(sql);
+            
+        }
+
+        private void txbSearchID_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSearchID;
+        }
+
+        private void txbSearchName_TextChanged(object sender, EventArgs e)
+        {
+            //string query = "SELECT ";
+            this.AcceptButton = btnSearchName;
+            //txbSearchName.AutoCompleteCustomSource. = Database.Instance.LoadData(query);
+        }
+
+        private void txbMaGV_TextChanged(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM GIANGVIEN WHERE MaGV='"+txbMaGV.Text+"'";
+            int result = Database.Instance.CheckUser(query);
+            if (result > 0)
+            {
+                MessageBox.Show("Trùng mã","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            AppExcel obj = new AppExcel();
+            obj.Application.Workbooks.Add(Type.Missing);
+            obj.Columns.ColumnWidth = 25;
+
+            saveFileDialog1.DefaultExt = "xlsm";
+            saveFileDialog1.Filter = "XLS file (*.xls)|*.xls|XLSM file (*.xlsm)|*.xml|XLSX file (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+            saveFileDialog1.AddExtension = true;
+            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.Title = "Where do you want to save the file?";
+
+            saveFileDialog1.InitialDirectory = @"C:\";
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                for (int i = 1; i < dgvLoadGiangvien.Columns.Count + 1; i++)
+                {
+                    obj.Cells[1, i] = dgvLoadGiangvien.Columns[i - 1].HeaderText;
+                }
+
+                for (int i = 0; i < dgvLoadGiangvien.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dgvLoadGiangvien.Columns.Count; j++)
+                    {
+                        if (dgvLoadGiangvien.Rows[i].Cells[j] != null)
+                        {
+                            obj.Cells[i + 2, j + 1] = dgvLoadGiangvien.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+                }
+                obj.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName);
+                obj.ActiveWorkbook.Saved = true;
+                MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Bạn chưa chọn nơi lưu file!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
+
+            
+
+        }
+
+
+        private void btnRefreshDetailHTDT_Click(object sender, EventArgs e)
+        {
+            LoadData2();
+        }
+
+        private void dgvLoadHTDT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index2 = e.RowIndex;
+            DataTable table = Database.Instance.LoadData(sql7);
+            if (index2 >= 0)
+            {
+                cbxMaHTDT.SelectedValue = table.Rows[index2]["MaHTDT"].ToString();
+                cbxMaNganhDT.SelectedValue = table.Rows[index2]["MaNganhDT"].ToString();
+                txbSttDetailHTDT.Text = table.Rows[index2]["SttHTDT"].ToString();
+            }
+        }
+
+        private void btnAddDetailHTDT_Click(object sender, EventArgs e)
+        {
+            DataTable table = Database.Instance.LoadData(sql7);
+            DataRow newRow = table.NewRow();
+            newRow["MaHTDT"] = cbxMaHTDT.SelectedValue;
+            newRow["MaNganhDT"] = cbxMaNganhDT.SelectedValue;
+            newRow["Chitiet"] = cbxMaNganhDT.GetItemText(cbxMaNganhDT.SelectedItem) + " - " + cbxMaHTDT.GetItemText(cbxMaHTDT.SelectedItem);
+            table.Rows.Add(newRow);
+            Database.Instance.Update(table);
+            LoadData2();
+        }
+
+        private void btnDelDetailHTDT_Click(object sender, EventArgs e)
+        {
+            DataTable table = Database.Instance.LoadData(sql7);
+            if (index2 >= 0)
+            {
+                table.Rows[index2].Delete();
+                Database.Instance.Update(table);
+                LoadData2();
+            }
+        }
+
+        private void btnEditDetailHTDT_Click(object sender, EventArgs e)
+        {
+            DataTable table = Database.Instance.LoadData(sql7);
+            if (index2 >= 0)
+            {
+                string temp = (cbxMaNganhDT.GetItemText(cbxMaNganhDT.SelectedItem) + " - " + cbxMaHTDT.GetItemText(cbxMaHTDT.SelectedItem));
+                table.Rows[index2]["MaHTDT"] = cbxMaHTDT.SelectedValue;
+                table.Rows[index2]["MaNganhDT"] = cbxMaNganhDT.SelectedValue;
+                table.Rows[index2]["Chitiet"] =temp;
+                Database.Instance.Update(table);
+                LoadData2();
+            }
+        }
+
+        private void btnDetailNganhDT_Click(object sender, EventArgs e)
+        {
+            NganhDaoTao nghanhdaotao = new NganhDaoTao();
+            nghanhdaotao.ShowDialog();
+            setCombobox();
+        }
+
+        private void btnDetailHTDT_Click(object sender, EventArgs e)
+        {
+            HinhThucDaoTao htdt = new HinhThucDaoTao();
+            htdt.ShowDialog();
+            setCombobox();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM ACCOUNT WHERE USERNAME ='"+Account.User.getUsername()+"'";
+            DataTable table = Database.Instance.LoadData(query);
+            if(txbOldPasswd.Text == Account.User.getPassword() && txbNewPasswd.Text != "")
+            {
+                table.Rows[0]["PASSWD"] = txbNewPasswd.Text;
+                Database.Instance.Update(table);
+                MessageBox.Show("Đổi mật khẩu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Account.User.setPasswd(txbNewPasswd.Text);
+            }
+            else
+            {
+                MessageBox.Show("Đổi mật khẩu thất bại! Sai mật khẩu cũ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
         }
     }
 }

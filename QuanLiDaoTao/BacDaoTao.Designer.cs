@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BacDaoTao));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddBDT = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -146,11 +147,13 @@
             // 
             this.dgvLoadBDT.AllowUserToAddRows = false;
             this.dgvLoadBDT.AllowUserToDeleteRows = false;
+            this.dgvLoadBDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLoadBDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLoadBDT.Location = new System.Drawing.Point(12, 140);
+            this.dgvLoadBDT.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvLoadBDT.Location = new System.Drawing.Point(0, 148);
             this.dgvLoadBDT.Name = "dgvLoadBDT";
             this.dgvLoadBDT.ReadOnly = true;
-            this.dgvLoadBDT.Size = new System.Drawing.Size(569, 161);
+            this.dgvLoadBDT.Size = new System.Drawing.Size(593, 161);
             this.dgvLoadBDT.TabIndex = 7;
             this.dgvLoadBDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoadBDT_CellClick);
             // 
@@ -162,8 +165,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvLoadBDT);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BacDaoTao";
-            this.Text = "BacDaoTao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lí bậc đào tạo";
             this.Load += new System.EventHandler(this.BacDaoTao_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

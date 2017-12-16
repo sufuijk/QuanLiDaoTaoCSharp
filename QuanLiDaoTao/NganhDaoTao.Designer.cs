@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NganhDaoTao));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,12 +94,15 @@
             // 
             this.dgvNDT.AllowUserToAddRows = false;
             this.dgvNDT.AllowUserToDeleteRows = false;
+            this.dgvNDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNDT.Location = new System.Drawing.Point(12, 146);
+            this.dgvNDT.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvNDT.Location = new System.Drawing.Point(0, 161);
             this.dgvNDT.Name = "dgvNDT";
-            this.dgvNDT.Size = new System.Drawing.Size(557, 126);
+            this.dgvNDT.ReadOnly = true;
+            this.dgvNDT.Size = new System.Drawing.Size(579, 126);
             this.dgvNDT.TabIndex = 1;
-            this.dgvNDT.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNDT_CellContentClick);
+            this.dgvNDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNDT_CellClick);
             // 
             // groupBox2
             // 
@@ -161,8 +165,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvNDT);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NganhDaoTao";
-            this.Text = "NganhDaoTao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lí ngành đào tạo";
             this.Load += new System.EventHandler(this.NganhDaoTao_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

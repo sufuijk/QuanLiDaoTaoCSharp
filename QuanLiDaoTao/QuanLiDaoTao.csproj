@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
     <Compile Include="BacDaoTao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,12 +64,6 @@
     <Compile Include="BoMon.Designer.cs">
       <DependentUpon>BoMon.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChiTietHTDT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChiTietHTDT.Designer.cs">
-      <DependentUpon>ChiTietHTDT.cs</DependentUpon>
-    </Compile>
     <Compile Include="DanToc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +71,12 @@
       <DependentUpon>DanToc.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="HinhThucDaoTao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HinhThucDaoTao.Designer.cs">
+      <DependentUpon>HinhThucDaoTao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,17 +109,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validate.cs" />
     <EmbeddedResource Include="BacDaoTao.resx">
       <DependentUpon>BacDaoTao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BoMon.resx">
       <DependentUpon>BoMon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChiTietHTDT.resx">
-      <DependentUpon>ChiTietHTDT.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DanToc.resx">
       <DependentUpon>DanToc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HinhThucDaoTao.resx">
+      <DependentUpon>HinhThucDaoTao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -138,7 +145,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,6 +160,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\totnghiept3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thongtintuyensinhtruongdaihoctravinh_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dh_thu_vien_tra_vinh01_635444219867812500.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\216291-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\216307-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\216251-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\227565-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

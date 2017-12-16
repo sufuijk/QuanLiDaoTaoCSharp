@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Khoa));
             this.dgvLoadKhoa = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txbTenKhoa = new System.Windows.Forms.TextBox();
@@ -48,11 +49,13 @@
             // 
             this.dgvLoadKhoa.AllowUserToAddRows = false;
             this.dgvLoadKhoa.AllowUserToDeleteRows = false;
+            this.dgvLoadKhoa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLoadKhoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLoadKhoa.Location = new System.Drawing.Point(12, 140);
+            this.dgvLoadKhoa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvLoadKhoa.Location = new System.Drawing.Point(0, 152);
             this.dgvLoadKhoa.Name = "dgvLoadKhoa";
             this.dgvLoadKhoa.ReadOnly = true;
-            this.dgvLoadKhoa.Size = new System.Drawing.Size(569, 161);
+            this.dgvLoadKhoa.Size = new System.Drawing.Size(589, 161);
             this.dgvLoadKhoa.TabIndex = 0;
             this.dgvLoadKhoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoadKhoa_CellClick);
             // 
@@ -162,9 +165,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvLoadKhoa);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Khoa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Khoa";
+            this.Text = "Quản lí khoa";
             this.Load += new System.EventHandler(this.Khoa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoadKhoa)).EndInit();
             this.groupBox1.ResumeLayout(false);

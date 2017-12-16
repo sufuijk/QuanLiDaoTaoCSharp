@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoiDaoTao));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddNoiDT = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -146,6 +147,7 @@
             // 
             this.dgvLoadNoiDT.AllowUserToAddRows = false;
             this.dgvLoadNoiDT.AllowUserToDeleteRows = false;
+            this.dgvLoadNoiDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLoadNoiDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoadNoiDT.Location = new System.Drawing.Point(12, 140);
             this.dgvLoadNoiDT.Name = "dgvLoadNoiDT";
@@ -162,7 +164,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvLoadNoiDT);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NoiDaoTao";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lí nơi đào tạo";
             this.Load += new System.EventHandler(this.NoiDaoTao_Load);
             this.groupBox2.ResumeLayout(false);

@@ -28,16 +28,6 @@ namespace QuanLiDaoTao
             LoadData();
         }
 
-        private void dgvNDT_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            index = e.RowIndex;
-            DataTable table = Database.Instance.LoadData(sql);
-            if (index >= 0)
-            {
-                txbMaNDT.Text = table.Rows[index]["MaNganhDT"].ToString();
-                txbTenNDT.Text = table.Rows[index]["TenNganhDT"].ToString();
-            }
-        }
 
         private void btnAddNDT_Click(object sender, EventArgs e)
         {
@@ -70,6 +60,17 @@ namespace QuanLiDaoTao
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void dgvNDT_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            DataTable table = Database.Instance.LoadData(sql);
+            if (index >= 0)
+            {
+                txbMaNDT.Text = table.Rows[index]["MaNganhDT"].ToString();
+                txbTenNDT.Text = table.Rows[index]["TenNganhDT"].ToString();
+            }
         }
     }
 }

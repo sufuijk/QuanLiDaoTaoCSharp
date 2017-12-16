@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanToc));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnDelDT = new System.Windows.Forms.Button();
@@ -101,6 +102,7 @@
             // 
             this.dgvDT.AllowUserToAddRows = false;
             this.dgvDT.AllowUserToDeleteRows = false;
+            this.dgvDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDT.Location = new System.Drawing.Point(12, 146);
             this.dgvDT.Name = "dgvDT";
@@ -162,8 +164,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvDT);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DanToc";
-            this.Text = "DanToc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lí dân tộc";
             this.Load += new System.EventHandler(this.DanToc_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.btnLogin = new System.Windows.Forms.Button();
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,8 +51,10 @@
             // 
             this.txbPassword.Location = new System.Drawing.Point(98, 90);
             this.txbPassword.Name = "txbPassword";
+            this.txbPassword.PasswordChar = '#';
             this.txbPassword.Size = new System.Drawing.Size(210, 20);
             this.txbPassword.TabIndex = 2;
+            this.txbPassword.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -101,9 +104,11 @@
             this.Controls.Add(this.txbPassword);
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

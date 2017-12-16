@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BoMon));
             this.dgvBM = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             // 
             this.dgvBM.AllowUserToAddRows = false;
             this.dgvBM.AllowUserToDeleteRows = false;
+            this.dgvBM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBM.Location = new System.Drawing.Point(12, 208);
             this.dgvBM.Name = "dgvBM";
@@ -195,8 +197,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvBM);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BoMon";
-            this.Text = "BoMon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Quản lí bộ môn";
             this.Load += new System.EventHandler(this.BoMon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBM)).EndInit();
             this.groupBox1.ResumeLayout(false);

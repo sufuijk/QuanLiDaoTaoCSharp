@@ -14,8 +14,8 @@ G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.exe
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\bin\Debug\QuanLiDaoTao.pdb
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.BacDaoTao.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.BoMon.resources
-G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.ChiTietHTDT.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.DanToc.resources
+G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.HinhThucDaoTao.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.Login.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.NganhDaoTao.resources
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.NoiDaoTao.resources
