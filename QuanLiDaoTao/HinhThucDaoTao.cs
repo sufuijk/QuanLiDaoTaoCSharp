@@ -61,10 +61,29 @@ namespace QuanLiDaoTao
             {
                 table.Rows[index]["MaHTDT"] = txbMaHTDT.Text;
                 table.Rows[index]["TenHTDT"] = txbTenHTDT.Text;
+                Database.Instance.Update(table);
+                LoadData();
             }else
             {
                 MessageBox.Show("Chọn dòng để sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnDelHTDT_Click(object sender, EventArgs e)
+        {
+            DataTable table = Database.Instance.LoadData(sql);
+            if (index >= 0)
+            {
+                
+                table.Rows[index].Delete();
+                Database.Instance.Update(table);
+                LoadData();
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace QuanLiDaoTao
         {
             Khoa khoa = new Khoa();
             khoa.ShowDialog();
+            LoadCombox();
         }
         private void LoadData()
         {

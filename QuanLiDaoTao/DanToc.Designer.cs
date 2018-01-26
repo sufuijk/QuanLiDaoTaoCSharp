@@ -51,18 +51,21 @@
             this.groupBox2.Controls.Add(this.btnDelDT);
             this.groupBox2.Controls.Add(this.btnEditDT);
             this.groupBox2.Controls.Add(this.btnAddDT);
-            this.groupBox2.Location = new System.Drawing.Point(386, 12);
+            this.groupBox2.Location = new System.Drawing.Point(579, 18);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(183, 128);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(274, 187);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Hành động";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(6, 91);
+            this.btnRefresh.Location = new System.Drawing.Point(9, 133);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(166, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(249, 34);
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.UseVisualStyleBackColor = true;
@@ -70,9 +73,10 @@
             // 
             // btnDelDT
             // 
-            this.btnDelDT.Location = new System.Drawing.Point(97, 57);
+            this.btnDelDT.Location = new System.Drawing.Point(146, 83);
+            this.btnDelDT.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelDT.Name = "btnDelDT";
-            this.btnDelDT.Size = new System.Drawing.Size(75, 28);
+            this.btnDelDT.Size = new System.Drawing.Size(112, 41);
             this.btnDelDT.TabIndex = 2;
             this.btnDelDT.Text = "Xóa";
             this.btnDelDT.UseVisualStyleBackColor = true;
@@ -80,9 +84,10 @@
             // 
             // btnEditDT
             // 
-            this.btnEditDT.Location = new System.Drawing.Point(97, 19);
+            this.btnEditDT.Location = new System.Drawing.Point(146, 28);
+            this.btnEditDT.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditDT.Name = "btnEditDT";
-            this.btnEditDT.Size = new System.Drawing.Size(75, 32);
+            this.btnEditDT.Size = new System.Drawing.Size(112, 47);
             this.btnEditDT.TabIndex = 1;
             this.btnEditDT.Text = "Sửa";
             this.btnEditDT.UseVisualStyleBackColor = true;
@@ -90,9 +95,10 @@
             // 
             // btnAddDT
             // 
-            this.btnAddDT.Location = new System.Drawing.Point(6, 19);
+            this.btnAddDT.Location = new System.Drawing.Point(9, 28);
+            this.btnAddDT.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddDT.Name = "btnAddDT";
-            this.btnAddDT.Size = new System.Drawing.Size(75, 66);
+            this.btnAddDT.Size = new System.Drawing.Size(112, 96);
             this.btnAddDT.TabIndex = 0;
             this.btnAddDT.Text = "Thêm";
             this.btnAddDT.UseVisualStyleBackColor = true;
@@ -104,10 +110,12 @@
             this.dgvDT.AllowUserToDeleteRows = false;
             this.dgvDT.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDT.Location = new System.Drawing.Point(12, 146);
+            this.dgvDT.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvDT.Location = new System.Drawing.Point(0, 227);
+            this.dgvDT.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDT.Name = "dgvDT";
             this.dgvDT.ReadOnly = true;
-            this.dgvDT.Size = new System.Drawing.Size(557, 126);
+            this.dgvDT.Size = new System.Drawing.Size(866, 184);
             this.dgvDT.TabIndex = 3;
             this.dgvDT.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDT_CellClick);
             // 
@@ -117,9 +125,11 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txbTenDT);
             this.groupBox1.Controls.Add(this.txbMaDT);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(18, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(368, 128);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(552, 187);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin dân tộc";
@@ -127,47 +137,55 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 72);
+            this.label2.Location = new System.Drawing.Point(24, 105);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.Size = new System.Drawing.Size(88, 19);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Tên ngành đào tạo";
+            this.label2.Text = "Tên dân tộc";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 41);
+            this.label1.Location = new System.Drawing.Point(24, 60);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(83, 19);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Mã ngành";
+            this.label1.Text = "Mã dân tộc";
             // 
             // txbTenDT
             // 
-            this.txbTenDT.Location = new System.Drawing.Point(159, 72);
+            this.txbTenDT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenDT.Location = new System.Drawing.Point(238, 105);
+            this.txbTenDT.Margin = new System.Windows.Forms.Padding(4);
             this.txbTenDT.Name = "txbTenDT";
-            this.txbTenDT.Size = new System.Drawing.Size(177, 20);
+            this.txbTenDT.Size = new System.Drawing.Size(264, 26);
             this.txbTenDT.TabIndex = 1;
             // 
             // txbMaDT
             // 
-            this.txbMaDT.Location = new System.Drawing.Point(159, 41);
+            this.txbMaDT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbMaDT.Location = new System.Drawing.Point(238, 60);
+            this.txbMaDT.Margin = new System.Windows.Forms.Padding(4);
             this.txbMaDT.Name = "txbMaDT";
-            this.txbMaDT.Size = new System.Drawing.Size(177, 20);
+            this.txbMaDT.Size = new System.Drawing.Size(264, 26);
             this.txbMaDT.TabIndex = 0;
             // 
             // DanToc
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 281);
+            this.ClientSize = new System.Drawing.Size(866, 411);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvDT);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DanToc";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lí dân tộc";
+            this.Text = "Quản lý dân tộc";
             this.Load += new System.EventHandler(this.DanToc_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDT)).EndInit();

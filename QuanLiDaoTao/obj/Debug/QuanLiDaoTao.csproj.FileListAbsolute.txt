@@ -25,3 +25,4 @@ G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.Properties.Resourc
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.csproj.GenerateResource.Cache
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.exe
 G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.pdb
+G:\BaiTap\C#\QuanLiDaoTao\QuanLiDaoTao\obj\Debug\QuanLiDaoTao.csprojResolveAssemblyReference.cache

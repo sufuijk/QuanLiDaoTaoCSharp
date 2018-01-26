@@ -66,30 +66,50 @@ namespace QuanLiDaoTao
             //Set default index for combobox Gioitinh
             cbxGioiTinh.SelectedIndex = 0;
         }
+
         private void LoadData()
         {
+           
             dgvLoadGiangvien.DataSource = Database.Instance.LoadData(this.sql);
+            DataTable table = new DataTable();
+            table = Database.Instance.LoadData(this.sql);
+            AutoCompleteStringCollection autocomplete = new AutoCompleteStringCollection();
+            for (int i = 0; i < dgvLoadGiangvien.Rows.Count; i++)
+            {
+                autocomplete.Add(table.Rows[i]["Ten"].ToString());
+                autocomplete.Add(table.Rows[i]["MaGV"].ToString());
+            }
+            txbSearch.AutoCompleteCustomSource = autocomplete;
+
+        }
+        private void LoadUser()
+        {
             txbDetailUsername.Text = Account.User.getUsername();
             txbDetailGrantUser.Text = Account.User.getGrant();
             txbDetailNoteUser.Text = Account.User.getDetail();
         }
-
         private void LoadData2()
         {
             dgvLoadHTDT.DataSource = Database.Instance.LoadData(this.sql7);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadData();
-            LoadData2();
+
             //Phân quyền ở đây 
             //1 là administrator
             //khác là user 
+            LoadUser();
             if (int.Parse(Account.User.getGrant()) != 1)
             {
                 tabControl1.TabPages.Remove(tabPage2);
                 tabControl1.TabPages.Remove(tabPage5);
                 tabControl1.TabPages.Remove(tabPage3);
+                tabControl1.TabPages.Remove(tabPage7);
+            }else
+            {
+                LoadData();
+                LoadData2();
+                LoadStatictis();
             }
 
             setCombobox();
@@ -148,9 +168,18 @@ namespace QuanLiDaoTao
 
         private void btnAddGV_Click(object sender, EventArgs e)
         {
-            if (txbMaGV.Text == null || txbMaGV.Text == "")
+            if (txbMaGV.Text == null || txbMaGV.Text == "" || txbHoGV.Text == null ||
+                txbHoGV.Text == "" || txbTenGV.Text == null || txbTenGV.Text == "" ||
+                txbHuongbotri.Text == null || txbHuongbotri.Text == "" || txbKinhphi.Text == null ||
+                txbKinhphi.Text == "")
             {
-                MessageBox.Show("Mã giảng viên không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chỉ được để trống tên lót!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }else if(dtpThoigianBD.Value >= dtpThoigianKT.Value)
+            {
+                MessageBox.Show("Ngày kết thúc phải lớn hơn ngày bắt đầu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }else if (dtpNgaySinhGV.Value > DateTime.Parse("1-1-1993"))
+            {
+                MessageBox.Show("Tuổi phải lớn hơn 24", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -241,31 +270,7 @@ namespace QuanLiDaoTao
             LoadData();
         }
 
-        private void btnSearchID_Click(object sender, EventArgs e)
-        {
-            sql = "SELECT * FROM GIANGVIEN WHERE MaGV='" + txbSearchID.Text + "'";
-            dgvTimKiem.DataSource = Database.Instance.LoadData(sql);
-
-        }
-
-        private void btnSearchName_Click(object sender, EventArgs e)
-        {
-            sql = "SELECT * FROM GIANGVIEN WHERE Ten=N'" + txbSearchName.Text + "'";
-            dgvTimKiem.DataSource = Database.Instance.LoadData(sql);
-            
-        }
-
-        private void txbSearchID_TextChanged(object sender, EventArgs e)
-        {
-            this.AcceptButton = btnSearchID;
-        }
-
-        private void txbSearchName_TextChanged(object sender, EventArgs e)
-        {
-            //string query = "SELECT ";
-            this.AcceptButton = btnSearchName;
-            //txbSearchName.AutoCompleteCustomSource. = Database.Instance.LoadData(query);
-        }
+       
 
         private void txbMaGV_TextChanged(object sender, EventArgs e)
         {
@@ -307,8 +312,18 @@ namespace QuanLiDaoTao
                         }
                     }
                 }
+                // Tinh sum 
+                string sql = "SELECT SUM(KINHPHI) AS TONG FROM GIANGVIEN";
+                int sum = Database.Instance.SumAttribute(sql);
+                
+                obj.Cells[dgvLoadGiangvien.Columns.Count + 1, 1] = "Tổng kinh phí";
+                obj.Cells[dgvLoadGiangvien.Columns.Count + 1, 2] = sum;
+
                 obj.ActiveWorkbook.SaveCopyAs(saveFileDialog1.FileName);
                 obj.ActiveWorkbook.Saved = true;
+
+                
+
                 MessageBox.Show("Xuất file thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -415,5 +430,87 @@ namespace QuanLiDaoTao
             }
 
         }
+
+        public void LoadStatictis()
+        {
+            chartStatistic.Series["Số lượng"].Points.Clear();
+
+            string query = "SELECT COUNT(*) AS NUMBER FROM BOMON";
+            string query1 = "SELECT COUNT(*) AS NUMBER FROM KHOA";
+            string query2 = "SELECT COUNT(*) AS NUMBER FROM NOIDAOTAO";
+            string query3 = "SELECT COUNT(*) AS NUMBER FROM GIANGVIEN";
+
+            int soLuongBoMon = Database.Instance.CountAttribute(query);
+            int soLuongKhoa = Database.Instance.CountAttribute(query1);
+            int soLuongNDT = Database.Instance.CountAttribute(query2);
+            int soLuongGV = Database.Instance.CountAttribute(query3);
+
+            chartStatistic.Series["Số lượng"].Points.AddXY("Bộ môn", soLuongBoMon);
+            chartStatistic.Series["Số lượng"].Points.AddXY("Khoa", soLuongKhoa);
+            chartStatistic.Series["Số lượng"].Points.AddXY("Nơi đào tạo", soLuongNDT);
+            chartStatistic.Series["Số lượng"].Points.AddXY("Giảng viên", soLuongGV);
+
+        }
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            LoadStatictis();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (radioName.Checked == true)
+            {
+                sql = "SELECT * FROM GIANGVIEN WHERE Ten LIKE N'%" + txbSearch.Text + "%'";
+                dgvTimKiem.DataSource = Database.Instance.LoadData(sql);
+            }
+            else
+            {
+                sql = "SELECT * FROM GIANGVIEN WHERE MaGV LIKE N'%" + txbSearch.Text + "%'";
+                dgvTimKiem.DataSource = Database.Instance.LoadData(sql);
+            }
+        }
+
+        private void txbSearch_TextChanged(object sender, EventArgs e)
+        {
+            this.AcceptButton = btnSearch;
+        }
+
+        private void dgvLoadGiangvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void chartStatistic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbKinhphi_TextChanged(object sender, EventArgs e)
+        {
+            string tString = txbKinhphi.Text;
+            if (tString.Trim() == "") return;
+            for (int i = 0; i < tString.Length; i++)
+            {
+                if (!char.IsNumber(tString[i]))
+                {
+                    MessageBox.Show("Không được nhập chữ");
+                    txbKinhphi.Text = "";
+                    return;
+                }
+
+            }
+            //If it get's here it's a valid number
+        }
+
+        private void radioName_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void radioID_CheckedChanged(object sender,EventArgs e)
+        {
+           
+        }
+
     }
 }

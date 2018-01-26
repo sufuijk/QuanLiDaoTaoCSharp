@@ -64,5 +64,30 @@ namespace QuanLiDaoTao
 
             return (table.Rows.Count > 0) ? 1 : 0; 
         }
+
+        public int CountAttribute(string sql)
+        {
+            //Query example = SELECT COUNT(*) AS NUMBER FROM TABLE
+            this.connect.Open();
+            table = new DataTable();
+            adt = new SqlDataAdapter(sql, this.connect);
+            adt.Fill(table);
+            int Count = int.Parse(table.Rows[0]["NUMBER"].ToString());
+            this.connect.Close();
+            return Count;
+        }
+
+        public int SumAttribute(string sql)
+        {
+            //Query example = SELECT SUM(col) AS TONG FROM TABLE
+            this.connect.Open();
+            table = new DataTable();
+            adt = new SqlDataAdapter(sql, this.connect);
+            adt.Fill(table);
+            int sum = int.Parse(table.Rows[0]["TONG"].ToString());
+            this.connect.Close();
+            return sum;
+        }
+
     }
 }
